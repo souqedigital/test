@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard</title>
+<style>
+:root{
+  --bg:#0b1220; --card:#111a2b; --primary:#4da3ff; --danger:#ff4d4d;
+  --text:#ffffff; --muted:#9aa4b2; --border:#1f2a3d;
+}
+*{box-sizing:border-box}
+body{ margin:0; font-family:system-ui; background:linear-gradient(135deg,#0b1220,#0f1b30); color:var(--text); }
+header{ display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:rgba(0,0,0,.4); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); gap:12px; }
+h1{ margin:0; font-size:18px; }
+.container{ padding:20px; max-width:1200px; margin:auto; }
+.controls{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; align-items:center; }
+.btn{ padding:8px 14px; border:none; border-radius:10px; cursor:pointer; font-weight:800; background:var(--primary); color:#0b1220; transition:.2s; }
+.btn:hover{opacity:.85}
+.btn.danger{ background:var(--danger); color:#fff; }
+.btn.ghost{ background:rgba(255,255,255,.08); color:#fff; border:1px solid var(--border); }
+.input{ padding:8px 12px; border-radius:10px; border:1px solid var(--border); background:var(--card); color:white; min-width:220px; }
+.badge{ padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px; background:rgba(255,255,255,.08); border:1px solid var(--border); }
+.table-wrapper{ overflow:auto; border-radius:14px; border:1px solid var(--border); background:var(--card); }
+table{ width:100%; border-collapse:collapse; font-size:14px; }
+th, td{ padding:12px; text-align:left; border-bottom:1px solid var(--border); }
+th{ background:#0f172a; font-weight:800; position:sticky; top:0; }
+tr:hover{ background:rgba(255,255,255,0.05); }
+.pill{ padding:4px 8px; background:rgba(77,163,255,0.15); border-radius:999px; font-size:12px; font-weight:800; }
+.meta{ margin-top:10px; color:var(--muted); }
+.toast{ position:fixed; bottom:18px; right:18px; background:var(--primary); color:#0b1220; font-weight:900; padding:10px 14px; border-radius:12px; opacity:0; transition:.25s; }
+.toast.show{ opacity:1; }
+.small{ font-size:12px; color: var(--muted); margin-left:6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Souqe Digital — Admin</h1>
+  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <span class="badge" id="soundState">Sound: OFF</span>
+    <span class="badge" id="notifState">Notif: OFF</span>
+    <button class="btn ghost" id="enableAllBtn" type="button">Enable Sound + Notif</button>
+    <button class="btn ghost" id="testSoundBtn" type="button">Test Sound</button>
+    <a class="btn" href="../index.html" style="text-decoration:none;">Store</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="controls">
+    <button id="refreshBtn" class="btn">Refresh</button>
+    <button id="clearBtn" class="btn danger">Clear</button>
+    <button id="exportBtn" class="btn">Export</button>
+
+    <label class="btn" style="cursor:pointer;">
+      Import <input id="importFile" type="file" accept="application/json" hidden>
+    </label>
+
+    <input id="search" class="input" placeholder="Search OrderId / Phone / Name..." />
+    <span class="small">🔊 file here: <b>admin/notification.mp3</b></span>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>OrderId</th><th>Product</th><th>Qty</th><th>Total</th>
+          <th>Name</th><th>Email</th><th>Phone</th><th>Note</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="meta" id="meta"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ✅ IMPORTANT -->
+<audio id="notifyAudio" src="notification.mp3" preload="auto"></audio>
+
+<script src="admin.js"></script>
+</body>
+</html>

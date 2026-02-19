@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Souqe Digital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-blobs">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">SD</div>
+      <div class="brand-text">
+        <div class="brand-title">Souqe Digital</div>
+        <div class="brand-sub">Accounts • Subscriptions • Digital Products</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Home</a>
+      <button class="nav-btn" id="shopBtn" type="button">Shop</button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-left">
+        <span class="badge">Fast delivery • Secure</span>
+
+        <h1 class="hero-title">
+          Buy Digital Products<br/>
+          <span class="grad">in one click</span>
+        </h1>
+
+        <p class="hero-text">
+          Choose a product, fill the form, order saved locally and WhatsApp opens.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn primary" id="browseBtn" type="button">Browse Products</button>
+          <a class="btn ghost" href="product.html?id=netflix">Quick Netflix</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
+          <div class="stat"><div class="stat-num">Instant</div><div class="stat-label">Delivery</div></div>
+          <div class="stat"><div class="stat-num">Safe</div><div class="stat-label">Orders</div></div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card float">
+          <div class="hero-card-top">
+            <div class="dot green"></div>
+            <div class="dot yellow"></div>
+            <div class="dot red"></div>
+          </div>
+          <div class="hero-card-body">
+            <div class="mini-title">Popular right now</div>
+            <div class="mini-row">
+              <div class="mini-pill">NETFLIX</div>
+              <div class="mini-pill">SPOTIFY</div>
+              <div class="mini-pill">FOLLOWERS</div>
+            </div>
+            <div class="mini-line"></div>
+            <div class="mini-text">Click “Order” on any product.</div>
+          </div>
+        </div>
+        <div class="hero-glow"></div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Products</h2>
+          <p class="section-sub">Search or filter, then click Order.</p>
+        </div>
+      </div>
+
+      <!-- ✅ Toolbar مرتب فكل الأجهزة -->
+      <div class="toolbar">
+        <input id="searchInput" class="searchbox" placeholder="Search: Netflix / Spotify / Followers..." />
+        <div class="chips">
+          <button class="chip chip-btn active" data-filter="all" type="button">All</button>
+          <button class="chip chip-btn" data-filter="accounts" type="button">Accounts</button>
+          <button class="chip chip-btn" data-filter="followers" type="button">Followers</button>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <div class="logo small">SD</div>
+        <div>
+          <div class="footer-title">Souqe Digital</div>
+          <div class="footer-sub">© <span id="year"></span> All rights reserved</div>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#products" id="footerProducts">Products</a>
+        <a href="#" id="backTop">Top</a>
+      </div>
+    </footer>
+  </main>
+
+  <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">WA</a>
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
