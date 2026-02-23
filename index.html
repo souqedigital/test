@@ -1,122 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Souqe Digital</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signature Perfume | عطور فاخرة</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="bg-blobs">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
-  </div>
-
   <header class="topbar">
-    <div class="brand">
-      <div class="logo">SD</div>
-      <div class="brand-text">
-        <div class="brand-title">Souqe Digital</div>
-        <div class="brand-sub">Accounts • Subscriptions • Digital Products</div>
+    <div class="container topbar__row">
+      <!-- اللوجو تحول من هنا -->
+      <h1 class="brand" id="brandName">Signature Perfume</h1>
+
+      <!-- زر تبديل اللغة -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
+      </div>
+
+   
+    </div>
+  </header>
+
+  <main class="container" id="products">
+    <!-- ===== اللوجو في وسط الصفحة ===== -->
+    <div class="logo-center">
+      <img src="logo.png" alt="Signature Perfume" class="logo-center-img">
+    </div>
+
+    <div class="section-head">
+      <h2 class="title-glow" id="sectionTitle">عطور فاخرة</h2>
+      <p id="sectionDesc">اختر العطر → اختر الحجم → املأ المعلومات → أرسل الطلب على واتساب</p>
+    </div>
+
+    <!-- Search + Categories -->
+    <div class="shop-controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث عن عطر..." />
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="categories" id="categoryFilters">
+        <button class="cat-btn active" data-cat="all" id="catAll">الكل</button>
+        <button class="cat-btn" data-cat="Most requested" id="catMost">الأكثر طلباً</button>
+        <button class="cat-btn" data-cat="men" id="catMen">رجالية</button>
+        <button class="cat-btn" data-cat="women" id="catWomen">نسائية</button>
+        <button class="cat-btn" data-cat="unisex" id="catUnisex">للجنسين</button>
       </div>
     </div>
 
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <button class="nav-btn" id="shopBtn" type="button">Shop</button>
-    </nav>
-  </header>
-
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-left">
-        <span class="badge">Fast delivery • Secure</span>
-
-        <h1 class="hero-title">
-          Buy Digital Products<br/>
-          <span class="grad">in one click</span>
-        </h1>
-
-        <p class="hero-text">
-          Choose a product, fill the form, order saved locally and WhatsApp opens.
-        </p>
-
-        <div class="hero-actions">
-          <button class="btn primary" id="browseBtn" type="button">Browse Products</button>
-          <a class="btn ghost" href="product.html?id=netflix">Quick Netflix</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
-          <div class="stat"><div class="stat-num">Instant</div><div class="stat-label">Delivery</div></div>
-          <div class="stat"><div class="stat-num">Safe</div><div class="stat-label">Orders</div></div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="hero-card float">
-          <div class="hero-card-top">
-            <div class="dot green"></div>
-            <div class="dot yellow"></div>
-            <div class="dot red"></div>
-          </div>
-          <div class="hero-card-body">
-            <div class="mini-title">Popular right now</div>
-            <div class="mini-row">
-              <div class="mini-pill">NETFLIX</div>
-              <div class="mini-pill">SPOTIFY</div>
-              <div class="mini-pill">FOLLOWERS</div>
-            </div>
-            <div class="mini-line"></div>
-            <div class="mini-text">Click “Order” on any product.</div>
-          </div>
-        </div>
-        <div class="hero-glow"></div>
-      </div>
-    </section>
-
-    <section class="section" id="products">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Products</h2>
-          <p class="section-sub">Search or filter, then click Order.</p>
-        </div>
-      </div>
-
-      <!-- ✅ Toolbar مرتب فكل الأجهزة -->
-      <div class="toolbar">
-        <input id="searchInput" class="searchbox" placeholder="Search: Netflix / Spotify / Followers..." />
-        <div class="chips">
-          <button class="chip chip-btn active" data-filter="all" type="button">All</button>
-          <button class="chip chip-btn" data-filter="accounts" type="button">Accounts</button>
-          <button class="chip chip-btn" data-filter="followers" type="button">Followers</button>
-        </div>
-      </div>
-
-      <div class="grid" id="productGrid"></div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-left">
-        <div class="logo small">SD</div>
-        <div>
-          <div class="footer-title">Souqe Digital</div>
-          <div class="footer-sub">© <span id="year"></span> All rights reserved</div>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <a href="#products" id="footerProducts">Products</a>
-        <a href="#" id="backTop">Top</a>
-      </div>
-    </footer>
+    <div class="grid" id="productGrid"></div>
   </main>
 
-  <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp">WA</a>
-  <div class="toast" id="toast"></div>
+  <footer class="container footer">
+    <p>© <span id="year"></span> <span id="footerText">Signature Perfume | جميع الحقوق محفوظة</span></p>
+  </footer>
 
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
   <script src="app.js"></script>
 </body>
 </html>

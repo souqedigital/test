@@ -1,89 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>العطر | Signature Perfume</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-  <div class="bg-blobs">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <span class="blob b3"></span>
-  </div>
-
+<body class="product-view">
   <header class="topbar">
-    <div class="brand">
-      <div class="logo">SD</div>
-      <div class="brand-text">
-        <div class="brand-title">Souqe Digital</div>
-        <div class="brand-sub">Fast delivery • Secure</div>
+    <div class="container topbar__row">
+      <!-- اللوجو تحول من هنا -->
+      <a class="brand brand--link" href="index.html#products" id="backLink">← رجوع</a>
+      
+      <!-- زر تبديل اللغة -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ar">العربية</button>
+        <button class="lang-btn" data-lang="en">English</button>
       </div>
     </div>
-
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-btn" href="index.html#products" style="text-decoration:none;">Back</a>
-    </nav>
   </header>
 
-  <main class="wrap product-shell">
-    <section id="productPage">
-      <div class="product-media">
-        <img id="pImg" src="" alt="Product" />
-      </div>
-
-      <div class="product-info">
-        <h2 id="pName" style="margin:0 0 6px;">Product</h2>
-        <div class="muted" id="pDesc" style="color:rgba(255,255,255,.72);margin-bottom:10px;"></div>
-
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;">
-          <span class="tag" id="pTag">Tag</span>
-          <span class="price" id="pPrice" style="font-weight:900;"></span>
-        </div>
-
-        <div class="form">
-          <div>
-            <div class="label">Full Name</div>
-            <input class="input" id="fullName" placeholder="Your name..." />
-          </div>
-
-          <div>
-            <div class="label">Phone</div>
-            <input class="input" id="phone" placeholder="+212..." />
-          </div>
-
-          <div>
-            <div class="label">Email (optional)</div>
-            <input class="input" id="email" placeholder="you@email.com" />
-          </div>
-
-          <!-- ✅ Quantity زوينة -->
-          <div class="qty-wrap">
-            <div class="label">Quantity</div>
-            <div class="qty">
-              <button class="qty-btn" type="button" id="qtyMinus">−</button>
-              <input class="qty-input" id="qtyInput" type="number" min="1" value="1" />
-              <button class="qty-btn" type="button" id="qtyPlus">+</button>
-            </div>
-          </div>
-
-          <div>
-            <div class="label">Note (optional)</div>
-            <textarea class="textarea" id="note" placeholder="Anything you want to add..."></textarea>
-            <p class="hint">After clicking Order, WhatsApp will open automatically.</p>
-          </div>
-
-          <button class="btn primary" id="orderBtn" type="button">Order Now</button>
-        </div>
-      </div>
-    </section>
+  <main class="container">
+    <!-- اللوجو في وسط الصفحة (اختياري - تقدر تحذفه إذا ما بغيتوش في صفحة المنتج) -->
+    <div class="logo-center">
+      <img src="logo.png" alt="Signature Perfume" class="logo-center-img">
+    </div>
+    
+    <div id="productPage" class="product-page"></div>
   </main>
 
-  <div class="toast" id="toast"></div>
-
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
   <script src="app.js"></script>
 </body>
 </html>
